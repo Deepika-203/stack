@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 5
+int top=-1;
+void  push(int a[],int x)
+{
+if(top==MAX-1)
+{
+printf("stack overflow");
+}
+else
+{
+top=top+1;
+a[top]=x;
+}
+}
+int peek(int a[])
+{
+return a[top];
+}
+void pop(int a[])
+{
+if(top==-1)
+{
+printf("Stack underflow");
+}
+else
+{
+top=top-1;
+}
+}
+
+void display(int a[])
+{
+int i;
+for(i=top;i>=0;i--)
+{
+printf("%d\t",a[i]);
+}
+}
+int main()
+{
+int i,ele;
+int a[MAX],ch,x;
+for(i=0;i<MAX;i++)
+{
+a[i]=0;
+}
+while(1)
+{
+printf("\n1.push\n2.pop\n3.peek\n4.display\n5.exit\n");
+printf("Enter your choice: ");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:printf("Enter the element to be pushed: ");
+       scanf("%d",&x);
+       push(a,x);
+       break;
+case 2:printf("poping in stack");
+       pop(a);
+       display(a);
+       break;
+case 3:printf("peek operation\n");
+       ele=peek(a);
+       printf("The top most element of the stack is:%d",ele);
+       break;
+
+case 4:printf("Display of stack");
+       display(a);
+       break;
+
+case 5:exit(0);
+      break;
+}
+}
+}
